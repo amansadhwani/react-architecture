@@ -8,11 +8,9 @@ import viteLogo from "./assets/vite.svg";
 
 function App() {
   const [count, setCount] = useState(0);
-  const aman: number = "10";
+
   return (
     <>
-      {aman}
-      {bmnr}
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
