@@ -46,7 +46,7 @@ export default defineConfig([
       "object-curly-spacing": ["error", "always"],
       "no-trailing-spaces": "error",
       "no-console": [
-        "warn",
+        "error",
         {
           allow: ["warn", "error"],
         },
