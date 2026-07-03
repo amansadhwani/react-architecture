@@ -1,11 +1,5 @@
-import { Button, TextField } from "@/design-system";
+import { LoginContainer } from "../container/LoginContainer";
 
 export default function LoginPage() {
-  return (
-    <>
-      <TextField label="Username" variant="outlined" />
-      <TextField label="Password" variant="outlined" />
-      <Button>Login</Button>
-    </>
-  );
+  return <LoginContainer />;
 }
