@@ -1,6 +1,6 @@
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/design-system/theme";
 
 type Props = {
   children: React.ReactNode;
