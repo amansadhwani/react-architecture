@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { APP_ROUTES } from "@/app/router";
+import { APP_ROUTES } from "@/app/config";
 
 import { LoginForm } from "../components/LoginForm";
 import { useLogin } from "../hooks";
