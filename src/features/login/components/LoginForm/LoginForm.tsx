@@ -4,12 +4,11 @@ import { Button, TextField } from "@/design-system";
 
 import type { LoginFormProps } from "../../types/login.types";
 
-export function LoginForm({ onSubmit, isLoading }: Readonly<LoginFormProps>) {
+export function LoginForm({ onSubmit }: Readonly<LoginFormProps>) {
   const [username, setUsername] = useState("johndoe");
   const [password, setPassword] = useState("JohnDoe@123");
   return (
     <>
-      {console.log(isLoading)}
       <TextField
         label="Username"
         value={username}
