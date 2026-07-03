@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import { APP_ROUTES } from "@/app/config";
+import { tokenStorage } from "@/services/login/tokenStorage";
 
 import { LoginForm } from "../components/LoginForm";
 import { useLogin } from "../hooks";
@@ -12,7 +13,8 @@ export function LoginContainer() {
 
   const handleSubmit = (credentials: LoginFormValues) => {
     loginMutation.mutate(credentials, {
-      onSuccess: () => {
+      onSuccess: (loginResponse) => {
+        tokenStorage.setAccessToken(loginResponse.token);
         navigate(APP_ROUTES.DASHBOARD);
       },
     });

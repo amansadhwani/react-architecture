@@ -1,4 +1,4 @@
-import { apiClient } from "@/lib/axios";
+import { apiClient } from "@/lib/apiClient";
 
 import type { LoginFormValues } from "../types/login.types";
 
