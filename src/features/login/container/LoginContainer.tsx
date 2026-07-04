@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import { APP_ROUTES } from "@/app/config";
-import { tokenStorage } from "@/services/login/tokenStorage";
+import { tokenStorage } from "@/services/auth/tokenStorage";
 
 import { LoginForm } from "../components/LoginForm";
 import { useLogin } from "../hooks";

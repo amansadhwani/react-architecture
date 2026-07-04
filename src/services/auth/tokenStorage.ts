@@ -1,5 +1,3 @@
-// src/services/auth/tokenStorage.ts
-
 let accessToken: string | null = null;
 
 export const tokenStorage = {
