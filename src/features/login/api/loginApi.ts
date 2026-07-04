@@ -7,4 +7,8 @@ export const loginApi = {
     const { data } = await apiClient.post("api/auth/login", credentials);
     return data;
   },
+
+  logout: async (): Promise<void> => {
+    await apiClient.post("api/auth/logout");
+  },
 };

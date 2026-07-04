@@ -15,11 +15,11 @@ export const router = createBrowserRouter([
     children: [
       {
         Component: PublicLayout,
-        children: [...loginRoutes],
+        children: [...loginRoutes, ...homeRoutes],
       },
       {
         Component: ProtectedLayout,
-        children: [...homeRoutes, ...dashboardRoutes],
+        children: [...dashboardRoutes],
       },
     ],
   },
