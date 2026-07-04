@@ -1,4 +1,6 @@
-import { Dashboard } from "../components/Dashboard";
+import { Stack } from "@mui/material";
+
+import { DashboardStats } from "../components/DashboardStats";
 import { useDashboard } from "../hooks/useDashboard";
 
 export function DashboardContainer() {
@@ -12,9 +14,13 @@ export function DashboardContainer() {
     return <div>Something went wrong.</div>;
   }
 
+  if (!data) {
+    return null;
+  }
+
   return (
-    <pre>
-      {JSON.stringify(data, null, 2)} <Dashboard />
-    </pre>
+    <Stack spacing={3} sx={{ p: 3 }}>
+      <DashboardStats stats={data.stats} />
+    </Stack>
   );
 }
