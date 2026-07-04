@@ -1,5 +1,6 @@
 import axios from "axios";
 
+import { logout } from "@/app/auth";
 import { env } from "@/app/config";
 import {
   refreshTokenApi,
@@ -69,7 +70,7 @@ apiClient.interceptors.response.use(
 
       return apiClient(originalRequest);
     } catch (refreshError) {
-      tokenStorage.clearAccessToken();
+      logout();
       throw refreshError;
     }
   },
