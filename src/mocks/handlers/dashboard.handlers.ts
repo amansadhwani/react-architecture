@@ -35,8 +35,8 @@ export const dashboardHandlers = [
         ],
         system_status: {
           api: "UP",
-          database: "UP",
-          cache: "UP",
+          database: "NEUTRAL",
+          cache: "DOWN",
           last_updated: "2026-07-04T09:35:00Z",
         },
       },

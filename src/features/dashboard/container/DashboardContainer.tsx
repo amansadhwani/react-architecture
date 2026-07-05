@@ -1,17 +1,24 @@
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 
-import { DashboardStats } from "../components/DashboardStats";
+import {
+  DashboardSkeleton,
+  DashboardStats,
+  ErrorState,
+  RecentActivities,
+  RecentOrders,
+  SystemStatus,
+} from "../components";
 import { useDashboard } from "../hooks/useDashboard";
 
 export function DashboardContainer() {
-  const { data, isLoading, isError } = useDashboard();
+  const { data, isLoading, isError, refetch } = useDashboard();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <DashboardSkeleton />;
   }
 
   if (isError) {
-    return <div>Something went wrong.</div>;
+    return <ErrorState onRetry={refetch} />;
   }
 
   if (!data) {
@@ -21,6 +28,20 @@ export function DashboardContainer() {
   return (
     <Stack spacing={3} sx={{ p: 3 }}>
       <DashboardStats stats={data.stats} />
+
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <RecentActivities activities={data.recent_activities} />
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 6 }}>
+          <SystemStatus status={data.system_status} />
+        </Grid>
+
+        <Grid size={12}>
+          <RecentOrders orders={data.recent_orders} />
+        </Grid>
+      </Grid>
     </Stack>
   );
 }
