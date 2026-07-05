@@ -19,7 +19,7 @@ export function DashboardStats({ stats }: Readonly<DashboardStatsProps>) {
     },
     {
       label: "Monthly Revenue",
-      value: `$${stats.monthly_revenue.toLocaleString(undefined, {
+      value: `${stats.monthly_revenue.toLocaleString(undefined, {
         minimumFractionDigits: 2,
       })}`,
     },

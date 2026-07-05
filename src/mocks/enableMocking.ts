@@ -1,5 +1,8 @@
+const shouldMock =
+  import.meta.env.DEV || import.meta.env.VITE_ENABLE_MSW === "true";
+
 export async function enableMocking(): Promise<void> {
-  if (!import.meta.env.DEV) {
+  if (!shouldMock) {
     return;
   }
 
