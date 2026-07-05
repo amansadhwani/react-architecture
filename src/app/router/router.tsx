@@ -4,6 +4,7 @@ import { dashboardRoutes } from "@/features/dashboard/routes";
 import { homeRoutes } from "@/features/home/routes";
 import { loginRoutes } from "@/features/login/routes";
 
+import { AppLayout } from "./layouts/AppLayout";
 import { ProtectedLayout } from "./layouts/ProtectedLayout";
 import { PublicLayout } from "./layouts/PublicLayout";
 import { RootLayout } from "./layouts/RootLayout";
@@ -19,7 +20,12 @@ export const router = createBrowserRouter([
       },
       {
         Component: ProtectedLayout,
-        children: [...dashboardRoutes],
+        children: [
+          {
+            Component: AppLayout,
+            children: [...dashboardRoutes],
+          },
+        ],
       },
     ],
   },
