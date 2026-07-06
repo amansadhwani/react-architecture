@@ -1,7 +1,11 @@
 import { RouterProvider } from "react-router-dom";
 
 import { ErrorBoundary } from "@/app/error";
-import { QueryProvider, ThemeProvider } from "@/app/providers";
+import {
+  AppSnackbarProvider,
+  QueryProvider,
+  ThemeProvider,
+} from "@/app/providers";
 import { router } from "@/app/router";
 
 import { AppAuthProvider } from "./AppAuthProvider";
@@ -12,7 +16,9 @@ export function AppProviders() {
       <QueryProvider>
         <ThemeProvider>
           <AppAuthProvider>
-            <RouterProvider router={router} />
+            <AppSnackbarProvider>
+              <RouterProvider router={router} />
+            </AppSnackbarProvider>
           </AppAuthProvider>
         </ThemeProvider>
       </QueryProvider>

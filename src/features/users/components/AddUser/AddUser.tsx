@@ -1,4 +1,5 @@
 import { Button } from "@/design-system";
+import { useAppSnackbar } from "@/shared/hooks";
 
 import { useCreateUser, useDeleteUser, useUpdateUser } from "../../hooks";
 
@@ -6,6 +7,8 @@ export function AddUser() {
   const createUserMutation = useCreateUser();
   const updateUserMutation = useUpdateUser();
   const deleteUserMutation = useDeleteUser();
+
+  const snackbar = useAppSnackbar();
 
   const onClickAddUser = () => {
     createUserMutation.mutate(
@@ -16,7 +19,7 @@ export function AddUser() {
       },
       {
         onSuccess: () => {
-          window.alert("User created successfully!");
+          snackbar.success("User created successfully!");
         },
       },
     );
@@ -32,7 +35,7 @@ export function AddUser() {
       },
       {
         onSuccess: () => {
-          window.alert("User updated successfully!");
+          snackbar.success("User updated successfully!");
         },
       },
     );
@@ -45,7 +48,7 @@ export function AddUser() {
       },
       {
         onSuccess: () => {
-          window.alert("User deleted successfully!");
+          snackbar.success("User deleted successfully!");
         },
       },
     );
@@ -56,8 +59,18 @@ export function AddUser() {
       <Button onClick={onClickAddUser} disabled={createUserMutation.isPending}>
         Add User
       </Button>
-      <Button onClick={onClickUpdateUser}>Update User</Button>
-      <Button onClick={onClickDeleteUser}>Delete User</Button>
+      <Button
+        onClick={onClickUpdateUser}
+        disabled={updateUserMutation.isPending}
+      >
+        Update User
+      </Button>
+      <Button
+        onClick={onClickDeleteUser}
+        disabled={deleteUserMutation.isPending}
+      >
+        Delete User
+      </Button>
     </>
   );
 }
