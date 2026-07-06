@@ -1,5 +1,6 @@
-import { Alert, CircularProgress } from "@mui/material";
+import { Alert, CircularProgress, Container, Typography } from "@mui/material";
 
+import { AddUser } from "../components/AddUser";
 import { UsersTable } from "../components/UserTable/UsersTable";
 import { useUsers } from "../hooks/useUsers";
 
@@ -14,5 +15,13 @@ export function UsersContainer() {
     return <Alert severity="error">Failed to load users.</Alert>;
   }
 
-  return <UsersTable users={data} />;
+  return (
+    <Container maxWidth="lg">
+      <Typography variant="h4" gutterBottom>
+        Users
+      </Typography>
+      <AddUser />
+      <UsersTable users={data} />
+    </Container>
+  );
 }

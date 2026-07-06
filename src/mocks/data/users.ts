@@ -1,4 +1,6 @@
-export const users = [
+import type { User } from "@/features/users/types";
+
+export const users: User[] = [
   {
     id: "1",
     name: "John Doe",
