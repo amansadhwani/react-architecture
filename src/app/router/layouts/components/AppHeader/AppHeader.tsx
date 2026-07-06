@@ -33,6 +33,9 @@ export function AppHeader() {
         <Button component={Link} to={APP_ROUTES.DASHBOARD} color="inherit">
           Dashboard
         </Button>
+        <Button component={Link} to={APP_ROUTES.USERS} color="inherit">
+          Users
+        </Button>
 
         <Button color="inherit" onClick={handleLogout}>
           Logout
