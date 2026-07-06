@@ -4,6 +4,7 @@ import { dashboardRoutes } from "@/features/dashboard/routes";
 import { homeRoutes } from "@/features/home/routes";
 import { loginRoutes } from "@/features/login/routes";
 
+import { ErrorRoutePage } from "../error";
 import { AppLayout } from "./layouts/AppLayout";
 import { ProtectedLayout } from "./layouts/ProtectedLayout";
 import { PublicLayout } from "./layouts/PublicLayout";
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
+    errorElement: <ErrorRoutePage />,
     children: [
       {
         Component: PublicLayout,

@@ -7,8 +7,11 @@ export function AppAuthProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     async function bootstrap() {
-      await sessionBootstrap();
-      setIsBootstrapping(false);
+      try {
+        await sessionBootstrap();
+      } finally {
+        setIsBootstrapping(false);
+      }
     }
 
     bootstrap();

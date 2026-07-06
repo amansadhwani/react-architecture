@@ -1,14 +1,14 @@
-import { logout } from "@/app/auth/logout";
 import { refreshTokenApi, tokenStorage } from "@/services/auth";
+
+import { clearSession } from "./clearSession";
 
 export async function sessionBootstrap() {
   try {
     const data = await refreshTokenApi.refresh();
 
     tokenStorage.setAccessToken(data.accessToken);
-    // Later:
-    // sessionStorage.setUser(data.user);
-  } catch {
-    logout();
+  } catch (error) {
+    console.error(error);
+    clearSession();
   }
 }
