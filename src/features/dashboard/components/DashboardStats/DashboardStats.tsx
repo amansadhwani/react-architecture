@@ -1,27 +1,30 @@
 import { Grid } from "@mui/material";
 
+import { useAppTranslation } from "@/shared/hooks";
+
 import { StatCard } from "../StatCard";
 import type { DashboardStatsProps } from "./DashboardStats.types";
 
 export function DashboardStats({ stats }: Readonly<DashboardStatsProps>) {
+  const { t } = useAppTranslation();
   const statCards = [
     {
-      label: "Total Users",
+      label: t("dashboard:totalUsers"),
       value: stats.total_users.toLocaleString(),
     },
     {
-      label: "Active Users",
+      label: t("dashboard:activeUsers"),
       value: stats.active_users.toLocaleString(),
     },
     {
-      label: "Pending Approvals",
+      label: t("dashboard:pendingApprovals"),
       value: stats.pending_approvals.toLocaleString(),
     },
     {
-      label: "Monthly Revenue",
-      value: `${stats.monthly_revenue.toLocaleString(undefined, {
+      label: t("dashboard:monthlyRevenue"),
+      value: stats.monthly_revenue.toLocaleString(undefined, {
         minimumFractionDigits: 2,
-      })}`,
+      }),
     },
   ];
 

@@ -1,11 +1,23 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  FormControl,
+  MenuItem,
+  Select,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import i18n from "i18next";
 import { Link, useNavigate } from "react-router-dom";
 
 import { logout } from "@/app/auth";
 import { APP_ROUTES } from "@/app/config/routes";
+import { useAppTranslation } from "@/shared/hooks";
 
 export function AppHeader() {
   const navigate = useNavigate();
+  const { t } = useAppTranslation();
 
   const handleLogout = async () => {
     await logout();
@@ -31,14 +43,45 @@ export function AppHeader() {
         <Box sx={{ flexGrow: 1 }} />
 
         <Button component={Link} to={APP_ROUTES.DASHBOARD} color="inherit">
-          Dashboard
-        </Button>
-        <Button component={Link} to={APP_ROUTES.USERS} color="inherit">
-          Users
+          {t("dashboard:title")}
         </Button>
 
+        <Button component={Link} to={APP_ROUTES.USERS} color="inherit">
+          {t("users:title")}
+        </Button>
+
+        <FormControl
+          size="small"
+          sx={{
+            minWidth: 120,
+            mx: 2,
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "white",
+            },
+            "& .MuiSvgIcon-root": {
+              color: "white",
+            },
+          }}
+        >
+          <Select
+            value={i18n.language}
+            onChange={(event) => {
+              void i18n.changeLanguage(event.target.value);
+            }}
+            sx={{
+              color: "white",
+              "& .MuiSelect-select": {
+                py: 0.75,
+              },
+            }}
+          >
+            <MenuItem value="en">🇨🇦 English</MenuItem>
+            <MenuItem value="fr">🇫🇷 Français</MenuItem>
+          </Select>
+        </FormControl>
+
         <Button color="inherit" onClick={handleLogout}>
-          Logout
+          {t("common:logout")}
         </Button>
       </Toolbar>
     </AppBar>

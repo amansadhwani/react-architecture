@@ -1,5 +1,7 @@
 import { Alert, Container, Typography } from "@mui/material";
 
+import { useAppTranslation } from "@/shared/hooks";
+
 import { AddUser } from "../components/AddUser";
 import { UsersSkeleton } from "../components/UsersSkeleton/UsersSkeleton";
 import { UsersTable } from "../components/UserTable/UsersTable";
@@ -7,6 +9,7 @@ import { useUsers } from "../hooks/useUsers";
 
 export function UsersContainer() {
   const { data, isPending, isError } = useUsers();
+  const { t } = useAppTranslation();
 
   if (isPending) {
     return <UsersSkeleton />;
@@ -19,7 +22,7 @@ export function UsersContainer() {
   return (
     <Container maxWidth="lg">
       <Typography variant="h4" gutterBottom>
-        Users
+        {t("users:title")}
       </Typography>
       <AddUser />
       <UsersTable users={data} />

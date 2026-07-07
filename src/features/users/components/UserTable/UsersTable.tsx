@@ -7,17 +7,20 @@ import {
   TableRow,
 } from "@mui/material";
 
+import { useAppTranslation } from "@/shared/hooks";
+
 import type { UsersTableProps } from "./UsersTable.types";
 
 export function UsersTable({ users }: Readonly<UsersTableProps>) {
+  const { t } = useAppTranslation();
   return (
     <Paper>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Role</TableCell>
+            <TableCell>{t("users:name")}</TableCell>
+            <TableCell>{t("users:email")}</TableCell>
+            <TableCell>{t("users:role")}</TableCell>
           </TableRow>
         </TableHead>
 
