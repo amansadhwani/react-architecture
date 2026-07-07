@@ -1,7 +1,8 @@
-import { http, HttpResponse } from "msw";
+import { delay, http, HttpResponse } from "msw";
 
 export const dashboardHandlers = [
   http.get("/api/dashboard", async () => {
+    await delay(500);
     return HttpResponse.json({
       data: {
         stats: {

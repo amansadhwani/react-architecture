@@ -1,6 +1,7 @@
-import { Alert, CircularProgress, Container, Typography } from "@mui/material";
+import { Alert, Container, Typography } from "@mui/material";
 
 import { AddUser } from "../components/AddUser";
+import { UsersSkeleton } from "../components/UsersSkeleton/UsersSkeleton";
 import { UsersTable } from "../components/UserTable/UsersTable";
 import { useUsers } from "../hooks/useUsers";
 
@@ -8,7 +9,7 @@ export function UsersContainer() {
   const { data, isPending, isError } = useUsers();
 
   if (isPending) {
-    return <CircularProgress />;
+    return <UsersSkeleton />;
   }
 
   if (isError) {

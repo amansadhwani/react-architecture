@@ -9,7 +9,7 @@ import {
 
 import type { UsersTableProps } from "./UsersTable.types";
 
-export function UsersTable({ users }: UsersTableProps) {
+export function UsersTable({ users }: Readonly<UsersTableProps>) {
   return (
     <Paper>
       <Table>
