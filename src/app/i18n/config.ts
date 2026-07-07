@@ -2,6 +2,8 @@ export const DEFAULT_LANGUAGE = "en";
 
 export const FALLBACK_LANGUAGE = "en";
 
+export const LANGUAGE_STORAGE_KEY = "app-language";
+
 export const SUPPORTED_LANGUAGES = ["en", "fr"] as const;
 
 export type AppLanguage = (typeof SUPPORTED_LANGUAGES)[number];

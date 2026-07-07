@@ -1,6 +1,6 @@
 import { Alert, Container, Typography } from "@mui/material";
 
-import { useAppTranslation } from "@/shared/hooks";
+import { useAppTranslation } from "@/app/i18n";
 
 import { AddUser } from "../components/AddUser";
 import { UsersSkeleton } from "../components/UsersSkeleton/UsersSkeleton";

@@ -1,17 +1,13 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import {
-  DEFAULT_LANGUAGE,
-  DEFAULT_NAMESPACE,
-  FALLBACK_LANGUAGE,
-  NAMESPACES,
-} from "./config";
+import { DEFAULT_NAMESPACE, FALLBACK_LANGUAGE, NAMESPACES } from "./config";
+import { languageStorage } from "./languageStorage";
 import { en } from "./locales/en";
 import { fr } from "./locales/fr";
 
 void i18n.use(initReactI18next).init({
-  lng: DEFAULT_LANGUAGE,
+  lng: languageStorage.get(),
 
   fallbackLng: FALLBACK_LANGUAGE,
 

@@ -8,16 +8,17 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import i18n from "i18next";
 import { Link, useNavigate } from "react-router-dom";
 
 import { logout } from "@/app/auth";
 import { APP_ROUTES } from "@/app/config/routes";
-import { useAppTranslation } from "@/shared/hooks";
+import { useAppTranslation, useLanguage } from "@/app/i18n";
+import type { AppLanguage } from "@/app/i18n/config";
 
 export function AppHeader() {
   const navigate = useNavigate();
   const { t } = useAppTranslation();
+  const { language, changeLanguage } = useLanguage();
 
   const handleLogout = async () => {
     await logout();
@@ -64,10 +65,10 @@ export function AppHeader() {
           }}
         >
           <Select
-            value={i18n.language}
-            onChange={(event) => {
-              void i18n.changeLanguage(event.target.value);
-            }}
+            value={language}
+            onChange={(event) =>
+              changeLanguage(event.target.value as AppLanguage)
+            }
             sx={{
               color: "white",
               "& .MuiSelect-select": {

@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-import { useAppTranslation } from "@/shared/hooks";
+import { useAppTranslation } from "@/app/i18n";
 
 import type { UsersTableProps } from "./UsersTable.types";
 

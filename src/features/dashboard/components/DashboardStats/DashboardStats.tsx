@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 
-import { useAppTranslation } from "@/shared/hooks";
+import { useAppTranslation } from "@/app/i18n";
 
 import { StatCard } from "../StatCard";
 import type { DashboardStatsProps } from "./DashboardStats.types";
