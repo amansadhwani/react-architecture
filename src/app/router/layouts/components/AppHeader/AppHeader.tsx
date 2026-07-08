@@ -8,7 +8,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { logout } from "@/app/auth";
 import { APP_ROUTES } from "@/app/config/routes";
@@ -16,13 +16,11 @@ import { useAppTranslation, useLanguage } from "@/app/i18n";
 import type { AppLanguage } from "@/app/i18n/config";
 
 export function AppHeader() {
-  const navigate = useNavigate();
   const { t } = useAppTranslation();
   const { language, changeLanguage } = useLanguage();
 
   const handleLogout = async () => {
     await logout();
-    navigate(APP_ROUTES.LOGIN, { replace: true });
   };
 
   return (

@@ -6,7 +6,7 @@ export function clearSession(): void {
   tokenStorage.clearAccessToken();
   queryClient.clear();
 
-  if (window.location.pathname !== APP_ROUTES.LOGIN) {
-    window.location.replace(APP_ROUTES.LOGIN);
+  if (window.location.pathname !== APP_ROUTES.HOME) {
+    window.location.replace(APP_ROUTES.HOME);
   }
 }

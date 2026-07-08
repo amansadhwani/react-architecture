@@ -7,7 +7,7 @@ export function ProtectedLayout() {
   const isAuthenticated = Boolean(tokenStorage.getAccessToken());
 
   if (!isAuthenticated) {
-    return <Navigate to={APP_ROUTES.LOGIN} replace />;
+    return <Navigate to={APP_ROUTES.HOME} replace />;
   }
 
   return <Outlet />;
