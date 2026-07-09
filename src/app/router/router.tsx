@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { dashboardRoutes } from "@/features/dashboard/routes";
 import { homeRoutes } from "@/features/home/routes";
 import { loginRoutes } from "@/features/login/routes";
+import { systemRoutes } from "@/features/system/routes";
 import { usersRoutes } from "@/features/users/routes";
 
 import { ErrorRoutePage } from "../error";
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
         children: [
           {
             Component: AppLayout,
-            children: [...dashboardRoutes, ...usersRoutes],
+            children: [...dashboardRoutes, ...usersRoutes, ...systemRoutes],
           },
         ],
       },

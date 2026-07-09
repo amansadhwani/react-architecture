@@ -1,0 +1,25 @@
+{
+  "title": "System",
+  "description": "General information about the application and deployment.",
+
+  "applicationName": "Application Name",
+  "companyName": "Company Name",
+  "applicationVersion": "Application Version",
+  "backendVersion": "Backend Version",
+  "environment": "Environment",
+  "buildNumber": "Build Number",
+  "releaseDate": "Release Date",
+  "supportEmail": "Support Email",
+  "apiStatus": "API Status",
+
+  "healthy": "Healthy",
+  "degraded": "Degraded",
+  "offline": "Offline",
+
+  "refresh": "Refresh",
+  "lastUpdated": "Last Updated",
+
+  "loading": "Loading system information...",
+  "error": "Unable to load system information.",
+  "retry": "Try Again"
+}

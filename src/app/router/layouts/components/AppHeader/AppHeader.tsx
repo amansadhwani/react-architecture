@@ -49,6 +49,10 @@ export function AppHeader() {
           {t("users:title")}
         </Button>
 
+        <Button component={Link} to={APP_ROUTES.SYSTEM} color="inherit">
+          {t("system:title")}
+        </Button>
+
         <FormControl
           size="small"
           sx={{

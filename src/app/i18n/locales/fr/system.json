@@ -1,0 +1,25 @@
+{
+  "title": "Système",
+  "description": "Informations générales sur l'application et son déploiement.",
+
+  "applicationName": "Nom de l'application",
+  "companyName": "Nom de l'entreprise",
+  "applicationVersion": "Version de l'application",
+  "backendVersion": "Version du backend",
+  "environment": "Environnement",
+  "buildNumber": "Numéro de build",
+  "releaseDate": "Date de publication",
+  "supportEmail": "Courriel du support",
+  "apiStatus": "État de l'API",
+
+  "healthy": "En bonne santé",
+  "degraded": "Dégradé",
+  "offline": "Hors ligne",
+
+  "refresh": "Actualiser",
+  "lastUpdated": "Dernière mise à jour",
+
+  "loading": "Chargement des informations système...",
+  "error": "Impossible de charger les informations système.",
+  "retry": "Réessayer"
+}
