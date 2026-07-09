@@ -8,5 +8,6 @@ export const systemOptions = {
     queryOptions({
       queryKey: systemKeys.all,
       queryFn: systemApi.getSystem,
+      staleTime: 60 * 1000, // after 1 min only fetch new data
     }),
 };
