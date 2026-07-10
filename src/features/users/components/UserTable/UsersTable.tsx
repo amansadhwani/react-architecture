@@ -1,4 +1,7 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import {
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -11,7 +14,11 @@ import { useAppTranslation } from "@/app/i18n";
 
 import type { UsersTableProps } from "./UsersTable.types";
 
-export function UsersTable({ users }: Readonly<UsersTableProps>) {
+export function UsersTable({
+  users,
+  onEdit,
+  onDelete,
+}: Readonly<UsersTableProps>) {
   const { t } = useAppTranslation();
   return (
     <Paper>
@@ -30,6 +37,15 @@ export function UsersTable({ users }: Readonly<UsersTableProps>) {
               <TableCell>{user.name}</TableCell>
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.role}</TableCell>
+              <TableCell align="right">
+                <IconButton onClick={() => onEdit(user)}>
+                  <EditIcon />
+                </IconButton>
+
+                <IconButton onClick={() => onDelete(user)}>
+                  <DeleteIcon />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

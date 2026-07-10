@@ -2,5 +2,7 @@
   "title": "Users",
   "name": "Name",
   "email": "Email",
-  "role": "Role"
+  "role": "Role",
+  "edit": "Edit",
+  "delete": "Delete"
 }
