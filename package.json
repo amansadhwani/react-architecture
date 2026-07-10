@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"cd server && npm start\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "type-check": "tsc -p tsconfig.app.json --noEmit",
@@ -21,6 +21,7 @@
     "axios": "^1.18.1",
     "i18next": "^26.3.4",
     "notistack": "^3.0.2",
+    "npm-check-updates": "^22.2.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-error-boundary": "^6.1.2",
