@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { loginRoutes } from "@/features/auth/routes";
 import { dashboardRoutes } from "@/features/dashboard/routes";
 import { homeRoutes } from "@/features/home/routes";
-import { loginRoutes } from "@/features/login/routes";
 import { systemRoutes } from "@/features/system/routes";
 import { usersRoutes } from "@/features/users/routes";
 

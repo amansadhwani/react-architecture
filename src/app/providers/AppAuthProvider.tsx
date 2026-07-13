@@ -2,8 +2,8 @@ import { type PropsWithChildren, useEffect, useState } from "react";
 
 import { sessionBootstrap } from "@/app/auth";
 import { useAppDispatch } from "@/app/store/hooks";
-import { useAuthenticatedUser } from "@/features/login/hooks/useLogin";
-import { setCurrentUser } from "@/features/login/store/login.slice";
+import { useAuthenticatedUser } from "@/features/auth/hooks/useLogin";
+import { setCurrentUser } from "@/features/auth/store/login.slice";
 
 export function AppAuthProvider({ children }: PropsWithChildren) {
   const [isBootstrapping, setIsBootstrapping] = useState(true);

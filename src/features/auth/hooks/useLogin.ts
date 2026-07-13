@@ -2,19 +2,19 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { tokenStorage } from "@/services/auth";
 
-import { loginApi } from "../api";
-import { loginKeys } from "../api/login.keys";
+import { authApi } from "../api";
+import { authKeys } from "../api/auth.keys";
 import { loginOptions } from "../api/login.options";
 
 export function useLogin() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: loginApi.login,
+    mutationFn: authApi.login,
     onSuccess: async (response) => {
       tokenStorage.setAccessToken(response.token);
       await queryClient.invalidateQueries({
-        queryKey: loginKeys.currentUser(),
+        queryKey: authKeys.currentUser(),
       });
     },
   });

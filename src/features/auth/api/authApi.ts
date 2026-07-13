@@ -2,7 +2,7 @@ import { apiClient } from "@/lib/apiClient";
 
 import type { LoginFormValues } from "../types/login.types";
 
-export const loginApi = {
+export const authApi = {
   login: async (credentials: LoginFormValues) => {
     const { data } = await apiClient.post("api/auth/login", credentials);
     return data;
