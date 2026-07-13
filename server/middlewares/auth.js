@@ -51,7 +51,8 @@ const generateAuthTokens = async (req, res, next) => {
 
     return res.status(200).json({
       // user,
-      token: accessToken,
+      //token: accessToken,
+      accessToken,
       expiresAt,
     });
   } catch (error) {

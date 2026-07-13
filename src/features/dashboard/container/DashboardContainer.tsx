@@ -1,5 +1,8 @@
 import { Grid, Stack } from "@mui/material";
 
+import { useAppSelector } from "@/app/store";
+import { selectCurrentUser } from "@/features/login/store/login.selectors";
+
 import {
   DashboardSkeleton,
   DashboardStats,
@@ -12,6 +15,8 @@ import { useDashboard } from "../hooks/useDashboard";
 
 export function DashboardContainer() {
   const { data, isLoading, isError, refetch } = useDashboard();
+
+  const user = useAppSelector(selectCurrentUser);
 
   if (isLoading) {
     return <DashboardSkeleton />;
@@ -27,6 +32,7 @@ export function DashboardContainer() {
 
   return (
     <Stack spacing={3} sx={{ p: 3 }}>
+      <h1>Welcome {user?.name}</h1>
       <DashboardStats stats={data.stats} />
 
       <Grid container spacing={3}>
