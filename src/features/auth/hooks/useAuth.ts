@@ -4,9 +4,9 @@ import { tokenStorage } from "@/services/auth";
 
 import { authApi } from "../api";
 import { authKeys } from "../api/auth.keys";
-import { loginOptions } from "../api/login.options";
+import { authOptions } from "../api/auth.options";
 
-export function useLogin() {
+export function useAuth() {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -22,7 +22,7 @@ export function useLogin() {
 
 export function useAuthenticatedUser(enabled = true) {
   return useQuery({
-    ...loginOptions.currentUser(),
+    ...authOptions.currentUser(),
     enabled,
   });
 }

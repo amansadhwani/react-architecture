@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { Button, TextField } from "@/design-system";
 
-import type { LoginFormProps } from "../../types/login.types";
+import type { LoginFormProps } from "../../types/auth.types";
 
 export function LoginForm({ onSubmit }: Readonly<LoginFormProps>) {
   const [username, setUsername] = useState("johndoe");

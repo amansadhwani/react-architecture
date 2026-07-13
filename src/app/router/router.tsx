@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { loginRoutes } from "@/features/auth/routes";
+import { authRoutes } from "@/features/auth/routes";
 import { dashboardRoutes } from "@/features/dashboard/routes";
 import { homeRoutes } from "@/features/home/routes";
 import { systemRoutes } from "@/features/system/routes";
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
     children: [
       {
         Component: PublicLayout,
-        children: [...loginRoutes, ...homeRoutes],
+        children: [...authRoutes, ...homeRoutes],
       },
       {
         Component: ProtectedLayout,

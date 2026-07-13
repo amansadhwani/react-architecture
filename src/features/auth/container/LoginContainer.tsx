@@ -4,11 +4,11 @@ import { APP_ROUTES } from "@/app/config";
 import { useAppSnackbar } from "@/shared/hooks";
 
 import { LoginForm } from "../components/LoginForm";
-import { useLogin } from "../hooks";
-import type { LoginFormValues } from "../types/login.types";
+import { useAuth } from "../hooks";
+import type { LoginFormValues } from "../types/auth.types";
 
 export function LoginContainer() {
-  const loginMutation = useLogin();
+  const loginMutation = useAuth();
   const navigate = useNavigate();
   const snackbar = useAppSnackbar();
 

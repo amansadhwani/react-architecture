@@ -1,7 +1,7 @@
 import { Grid, Stack } from "@mui/material";
 
 import { useAppSelector } from "@/app/store";
-import { selectCurrentUser } from "@/features/auth/store/login.selectors";
+import { selectCurrentUser } from "@/features/auth/store/auth.selectors";
 
 import {
   DashboardSkeleton,
