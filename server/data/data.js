@@ -6,6 +6,7 @@ const users = [
     email: "johndoe@example.com",
     userName: "johndoe",
     password: "JohnDoe@123",
+    role: "admin",
   },
   {
     id: 2,
@@ -13,6 +14,15 @@ const users = [
     email: "janesmith@example.com",
     userName: "janesmith",
     password: "JaneSmith@123",
+    role: "manager",
+  },
+  {
+    id: 3,
+    name: "Bob Wilson",
+    email: "bob@example.com",
+    userName: "bob",
+    password: "Bob@123",
+    role: "user",
   },
 ];
 

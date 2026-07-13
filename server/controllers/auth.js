@@ -123,7 +123,7 @@ const refreshAccessToken = async (req, res, next) => {
         ACCESS_TOKEN_LIFE,
       );
       return res.status(200).json({
-        user,
+        //user,
         accessToken,
         expiresAt: new Date(Date.now() + ms(ACCESS_TOKEN_LIFE)),
       });

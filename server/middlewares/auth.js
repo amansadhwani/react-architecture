@@ -18,7 +18,7 @@ const { users, tokens } = require("../data/data");
 
 const generateAuthTokens = async (req, res, next) => {
   try {
-    const user = users.find((user) => user.id === req.userId);
+    //const user = users.find((user) => user.id === req.userId);
 
     const refreshToken = generateJWT(
       req.userId,
@@ -50,7 +50,7 @@ const generateAuthTokens = async (req, res, next) => {
     const expiresAt = new Date(Date.now() + ms(ACCESS_TOKEN_LIFE));
 
     return res.status(200).json({
-      user,
+      // user,
       token: accessToken,
       expiresAt,
     });

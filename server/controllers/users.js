@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 
 const { users } = require("../data/data");
+const permissions = require("../data/permissions");
 
 const getUsersList = async (req, res, next) => {
   const usersListWithOutPassword = users.map((user) => {
@@ -19,14 +20,18 @@ const getAuthenticatedUser = async (req, res, next) => {
 
     const authenticatedUser = users.find((user) => user.id == userId);
 
-    if (authenticatedUser) {
-      return res.status(200).json({
-        data: authenticatedUser,
-      });
+    if (!authenticatedUser) {
+      throw createError.NotFound();
     }
 
-    const error = createError.NotFound();
-    throw error;
+    const { password, ...userWithoutPassword } = authenticatedUser;
+
+    return res.status(200).json({
+      data: {
+        ...userWithoutPassword,
+        permissions: permissions[userWithoutPassword.role] ?? [],
+      },
+    });
   } catch (error) {
     return next(error);
   }
