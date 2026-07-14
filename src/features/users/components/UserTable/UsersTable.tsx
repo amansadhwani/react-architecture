@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 
 import { useAppTranslation } from "@/app/i18n";
+import { Can, Permission } from "@/auth";
 
 import type { UsersTableProps } from "./UsersTable.types";
 
@@ -38,13 +39,16 @@ export function UsersTable({
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.role}</TableCell>
               <TableCell align="right">
-                <IconButton onClick={() => onEdit(user)}>
-                  <EditIcon />
-                </IconButton>
-
-                <IconButton onClick={() => onDelete(user)}>
-                  <DeleteIcon />
-                </IconButton>
+                <Can permission={Permission.UsersUpdate}>
+                  <IconButton onClick={() => onEdit(user)}>
+                    <EditIcon />
+                  </IconButton>
+                </Can>
+                <Can permission={Permission.UsersDelete}>
+                  <IconButton onClick={() => onDelete(user)}>
+                    <DeleteIcon />
+                  </IconButton>
+                </Can>
               </TableCell>
             </TableRow>
           ))}

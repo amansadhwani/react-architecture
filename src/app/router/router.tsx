@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { authRoutes } from "@/features/auth/routes";
 import { dashboardRoutes } from "@/features/dashboard/routes";
+import { forbiddenRoutes } from "@/features/forbidden/routes";
 import { homeRoutes } from "@/features/home/routes";
 import { systemRoutes } from "@/features/system/routes";
 import { usersRoutes } from "@/features/users/routes";
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
     children: [
       {
         Component: PublicLayout,
-        children: [...authRoutes, ...homeRoutes],
+        children: [...authRoutes, ...homeRoutes, ...forbiddenRoutes],
       },
       {
         Component: ProtectedLayout,

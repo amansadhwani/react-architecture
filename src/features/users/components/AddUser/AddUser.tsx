@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { Can, Permission } from "@/auth";
 import { Button } from "@/design-system";
 
 import { CreateUserDialog } from "../CreateUserDialog";
@@ -9,9 +10,12 @@ export function AddUser() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)} sx={{ mb: 2 }}>
-        Add User
-      </Button>
+      <Can permission={Permission.UsersCreate}>
+        <Button onClick={() => setOpen(true)} sx={{ mb: 2 }}>
+          Add User
+        </Button>
+      </Can>
+
       <CreateUserDialog open={open} onClose={() => setOpen(false)} />
     </>
   );

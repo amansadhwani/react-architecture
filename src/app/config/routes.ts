@@ -4,4 +4,5 @@ export const APP_ROUTES = {
   DASHBOARD: "/dashboard",
   USERS: "/users",
   SYSTEM: "/system",
+  FORBIDDEN: "/forbidden",
 } as const;

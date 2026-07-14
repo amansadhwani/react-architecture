@@ -14,10 +14,29 @@ import { logout } from "@/app/auth";
 import { APP_ROUTES } from "@/app/config/routes";
 import { useAppTranslation, useLanguage } from "@/app/i18n";
 import type { AppLanguage } from "@/app/i18n/config";
+import { Can, Permission } from "@/auth";
 
 export function AppHeader() {
   const { t } = useAppTranslation();
   const { language, changeLanguage } = useLanguage();
+
+  const navigation = [
+    {
+      label: t("dashboard:title"),
+      to: APP_ROUTES.DASHBOARD,
+      permission: Permission.DashboardRead,
+    },
+    {
+      label: t("users:title"),
+      to: APP_ROUTES.USERS,
+      permission: Permission.UsersRead,
+    },
+    {
+      label: t("system:title"),
+      to: APP_ROUTES.SYSTEM,
+      permission: Permission.SystemRead,
+    },
+  ];
 
   const handleLogout = async () => {
     await logout();
@@ -41,17 +60,13 @@ export function AppHeader() {
 
         <Box sx={{ flexGrow: 1 }} />
 
-        <Button component={Link} to={APP_ROUTES.DASHBOARD} color="inherit">
-          {t("dashboard:title")}
-        </Button>
-
-        <Button component={Link} to={APP_ROUTES.USERS} color="inherit">
-          {t("users:title")}
-        </Button>
-
-        <Button component={Link} to={APP_ROUTES.SYSTEM} color="inherit">
-          {t("system:title")}
-        </Button>
+        {navigation.map((item) => (
+          <Can key={item.to} permission={item.permission}>
+            <Button component={Link} to={item.to} color="inherit">
+              {item.label}
+            </Button>
+          </Can>
+        ))}
 
         <FormControl
           size="small"
