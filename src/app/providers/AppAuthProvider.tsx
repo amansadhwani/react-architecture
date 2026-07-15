@@ -4,14 +4,13 @@ import { sessionBootstrap } from "@/app/auth";
 import { useAppDispatch } from "@/app/store/hooks";
 import { useAuthenticatedUser } from "@/features/auth/hooks/useAuth";
 import { setCurrentUser } from "@/features/auth/store/auth.slice";
-import { tokenStorage } from "@/services/auth";
 
 export function AppAuthProvider({ children }: PropsWithChildren) {
   const [isBootstrapping, setIsBootstrapping] = useState(true);
 
   const dispatch = useAppDispatch();
 
-  const { data: user, isPending } = useAuthenticatedUser(!isBootstrapping);
+  const { data: user } = useAuthenticatedUser(!isBootstrapping);
 
   useEffect(() => {
     async function bootstrap() {
@@ -30,11 +29,6 @@ export function AppAuthProvider({ children }: PropsWithChildren) {
 
   // Wait until refresh finishes
   if (isBootstrapping) {
-    return null;
-  }
-
-  // Wait until /users/me finishes (only when authenticated)
-  if (tokenStorage.getAccessToken() && isPending) {
     return null;
   }
 
