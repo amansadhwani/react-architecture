@@ -32,6 +32,11 @@ export function AppHeader() {
       permission: Permission.UsersRead,
     },
     {
+      label: t("users:title"),
+      to: APP_ROUTES.USERS2,
+      permission: Permission.Users2Read,
+    },
+    {
       label: t("system:title"),
       to: APP_ROUTES.SYSTEM,
       permission: Permission.SystemRead,

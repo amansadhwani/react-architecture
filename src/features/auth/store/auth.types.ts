@@ -6,7 +6,8 @@ export type Permission =
   | "users.create"
   | "users.update"
   | "users.delete"
-  | "system.read";
+  | "system.read"
+  | "users2.read";
 
 export interface AuthUser {
   id: number;

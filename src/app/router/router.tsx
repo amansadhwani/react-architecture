@@ -6,6 +6,7 @@ import { forbiddenRoutes } from "@/features/forbidden/routes";
 import { homeRoutes } from "@/features/home/routes";
 import { systemRoutes } from "@/features/system/routes";
 import { usersRoutes } from "@/features/users/routes";
+import { users2Routes } from "@/features/users2/routes";
 
 import { ErrorRoutePage } from "../error";
 import { AppLayout } from "./layouts/AppLayout";
@@ -28,7 +29,12 @@ export const router = createBrowserRouter([
         children: [
           {
             Component: AppLayout,
-            children: [...dashboardRoutes, ...usersRoutes, ...systemRoutes],
+            children: [
+              ...dashboardRoutes,
+              ...usersRoutes,
+              ...systemRoutes,
+              ...users2Routes,
+            ],
           },
         ],
       },

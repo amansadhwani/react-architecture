@@ -15,7 +15,7 @@ export function LoginContainer() {
   const handleSubmit = (credentials: LoginFormValues) => {
     loginMutation.mutate(credentials, {
       onSuccess: () => {
-        navigate(APP_ROUTES.DASHBOARD, {
+        navigate(APP_ROUTES.USERS2, {
           replace: true,
         });
       },

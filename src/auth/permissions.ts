@@ -7,6 +7,8 @@ export const Permission = {
   UsersDelete: "users.delete",
 
   SystemRead: "system.read",
+
+  Users2Read: "users2.read",
 } as const;
 
 export type Permission = (typeof Permission)[keyof typeof Permission];
