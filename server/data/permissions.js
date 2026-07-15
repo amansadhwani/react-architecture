@@ -6,11 +6,12 @@ const permissions = {
     "users.update",
     "users.delete",
     "system.read",
+    "users2.read",
   ],
 
-  manager: ["dashboard.read", "users.read", "system.read"],
+  manager: ["dashboard.read", "users.read", "system.read", "users2.read"],
 
-  user: ["dashboard.read", "users.read"],
+  user: ["dashboard.read", "users.read", "users2.read"],
 };
 
 module.exports = permissions;
