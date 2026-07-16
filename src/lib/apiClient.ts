@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { logout } from "@/app/auth";
 import { env } from "@/app/config";
+import { logout } from "@/features/auth/services";
 import {
   refreshTokenApi,
   type RefreshTokenResponse,
