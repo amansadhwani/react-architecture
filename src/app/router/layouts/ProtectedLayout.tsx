@@ -18,7 +18,6 @@ export function ProtectedLayout() {
   if (!tokenStorage.getAccessToken()) {
     return <Navigate to={APP_ROUTES.HOME} replace />;
   }
-
   if (permission && !allowed) {
     return <Navigate to={APP_ROUTES.FORBIDDEN} replace />;
   }
