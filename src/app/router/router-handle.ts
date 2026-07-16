@@ -1,4 +1,4 @@
-import type { Permission } from "@/auth";
+import type { Permission } from "@/access-control";
 
 export interface AppRouteHandle {
   permission?: Permission;

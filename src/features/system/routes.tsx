@@ -1,7 +1,7 @@
 import type { RouteObject } from "react-router-dom";
 
+import { Permission } from "@/access-control";
 import { APP_ROUTES } from "@/app/config";
-import { Permission } from "@/auth";
 
 export const systemRoutes: RouteObject[] = [
   {

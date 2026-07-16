@@ -10,8 +10,8 @@ import {
   TableRow,
 } from "@mui/material";
 
+import { Can, Permission } from "@/access-control";
 import { useAppTranslation } from "@/app/i18n";
-import { Can, Permission } from "@/auth";
 
 import type { UsersTableProps } from "./UsersTable.types";
 

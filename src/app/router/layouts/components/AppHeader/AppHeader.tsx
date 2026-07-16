@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import { Can, Permission } from "@/access-control";
 import { APP_ROUTES } from "@/app/config/routes";
 import { useAppTranslation, useLanguage } from "@/app/i18n";
 import type { AppLanguage } from "@/app/i18n/config";
-import { Can, Permission } from "@/auth";
 import { logout } from "@/features/auth/services";
 
 export function AppHeader() {

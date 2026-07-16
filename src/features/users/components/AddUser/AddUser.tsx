@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Can, Permission } from "@/auth";
+import { Can, Permission } from "@/access-control";
 import { Button } from "@/design-system";
 
 import { CreateUserDialog } from "../CreateUserDialog";
