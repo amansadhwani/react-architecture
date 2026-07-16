@@ -4,7 +4,7 @@ import type { AppDispatch } from "@/app/store";
 import { refreshTokenApi, tokenStorage } from "@/services/auth";
 
 import { clearSession } from "./clearSession";
-import { hydrateAuth } from "./hydrateAuth";
+import { loadCurrentUser } from "./loadCurrentUser";
 
 export async function initializeAuth(
   queryClient: QueryClient,
@@ -20,7 +20,7 @@ export async function initializeAuth(
 
     tokenStorage.setAccessToken(response.accessToken);
 
-    await hydrateAuth(queryClient, dispatch);
+    await loadCurrentUser(queryClient, dispatch);
 
     return true;
   } catch (error) {
