@@ -1,6 +1,7 @@
 import { APP_ROUTES } from "@/app/config";
 import { queryClient } from "@/app/query/queryClient";
-import { tokenStorage } from "@/services/auth";
+
+import { tokenStorage } from "./tokenStorage";
 
 export function clearSession(): void {
   tokenStorage.clearAccessToken();

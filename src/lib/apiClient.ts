@@ -2,11 +2,9 @@ import axios from "axios";
 
 import { env } from "@/app/config";
 import { logout } from "@/features/auth/services";
-import {
-  refreshTokenApi,
-  type RefreshTokenResponse,
-  tokenStorage,
-} from "@/services/auth";
+import { refreshTokenApi } from "@/features/auth/services/refreshToken";
+import { tokenStorage } from "@/features/auth/services/tokenStorage";
+import type { RefreshTokenResponse } from "@/features/auth/types";
 
 export const apiClient = axios.create({
   baseURL: env.apiBaseUrl,

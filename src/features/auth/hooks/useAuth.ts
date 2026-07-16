@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useAppDispatch } from "@/app/store/hooks";
-import { tokenStorage } from "@/services/auth";
 
 import { authApi } from "../api";
 import { loadCurrentUser } from "../services";
+import { tokenStorage } from "../services/tokenStorage";
 
 export function useAuth() {
   const queryClient = useQueryClient();

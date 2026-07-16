@@ -1,6 +1,6 @@
 import { refreshClient } from "@/lib/refreshClient";
 
-import type { RefreshTokenResponse } from "./types";
+import type { RefreshTokenResponse } from "../types";
 
 export const refreshTokenApi = {
   refresh: async (): Promise<RefreshTokenResponse> => {
