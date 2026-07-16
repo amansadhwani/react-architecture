@@ -3,7 +3,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { tokenStorage } from "@/services/auth";
 
 import { authApi } from "../api";
-import { authKeys } from "../api/auth.keys";
 import { authOptions } from "../api/auth.options";
 
 export function useAuth() {
@@ -13,9 +12,7 @@ export function useAuth() {
     mutationFn: authApi.login,
     onSuccess: async (response) => {
       tokenStorage.setAccessToken(response.accessToken);
-      await queryClient.invalidateQueries({
-        queryKey: authKeys.currentUser(),
-      });
+      await queryClient.ensureQueryData(authOptions.currentUser());
     },
   });
 }

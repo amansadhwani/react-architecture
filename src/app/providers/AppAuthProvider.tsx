@@ -1,20 +1,26 @@
 import { type PropsWithChildren, useEffect, useState } from "react";
 
-import { sessionBootstrap } from "@/app/auth";
 import { useAppDispatch } from "@/app/store/hooks";
 import { useAuthenticatedUser } from "@/features/auth/hooks/useAuth";
 import { setCurrentUser } from "@/features/auth/store/auth.slice";
 
+import { sessionBootstrap } from "../auth";
+
 export function AppAuthProvider({ children }: PropsWithChildren) {
   const [isBootstrapping, setIsBootstrapping] = useState(true);
+  const [bootstrapSucceeded, setBootstrapSucceeded] = useState<boolean | null>(
+    null,
+  );
 
   const dispatch = useAppDispatch();
 
-  const { data: user } = useAuthenticatedUser(!isBootstrapping);
+  const { data: user } = useAuthenticatedUser(bootstrapSucceeded === true);
 
   useEffect(() => {
     async function bootstrap() {
-      await sessionBootstrap();
+      const success = await sessionBootstrap();
+
+      setBootstrapSucceeded(success);
       setIsBootstrapping(false);
     }
 
