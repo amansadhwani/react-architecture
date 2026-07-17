@@ -5,7 +5,7 @@ import { refreshApi } from "@/features/auth/api";
 import { logout } from "@/features/auth/services";
 import { tokenStorage } from "@/features/auth/services/tokenStorage";
 import type { RefreshTokenResponse } from "@/features/auth/types";
-import { mapApiError } from "@/lib/api/errors/map.api.error";
+import { mapApiError } from "@/lib/errors/map.api.error";
 
 export const apiClient = axios.create({
   baseURL: env.apiBaseUrl,
