@@ -14,11 +14,12 @@ import { Can, Permission } from "@/access-control";
 import { APP_ROUTES } from "@/app/config/routes";
 import { useAppTranslation, useLanguage } from "@/app/i18n";
 import type { AppLanguage } from "@/app/i18n/config";
-import { logout } from "@/features/auth/services";
+import { useLogout } from "@/features/auth/hooks";
 
 export function AppHeader() {
   const { t } = useAppTranslation();
   const { language, changeLanguage } = useLanguage();
+  const logoutMutation = useLogout();
 
   const navigation = [
     {
@@ -44,7 +45,7 @@ export function AppHeader() {
   ];
 
   const handleLogout = async () => {
-    await logout();
+    logoutMutation.mutate();
   };
 
   return (

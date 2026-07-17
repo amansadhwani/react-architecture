@@ -7,7 +7,6 @@ import type { LoginFormValues } from "../types";
 export function useLogin() {
   const queryClient = useQueryClient();
   const dispatch = useAppDispatch();
-
   return useMutation({
     mutationFn: (credentials: LoginFormValues) =>
       login(credentials, queryClient, dispatch),
