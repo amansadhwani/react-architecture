@@ -1,8 +1,8 @@
 import axios from "axios";
 
 import { env } from "@/app/config";
+import { refreshApi } from "@/features/auth/api";
 import { logout } from "@/features/auth/services";
-import { refreshTokenApi } from "@/features/auth/services/refreshToken";
 import { tokenStorage } from "@/features/auth/services/tokenStorage";
 import type { RefreshTokenResponse } from "@/features/auth/types";
 
@@ -47,7 +47,7 @@ apiClient.interceptors.response.use(
       if (!isRefreshing) {
         isRefreshing = true;
 
-        refreshPromise = refreshTokenApi.refresh().finally(() => {
+        refreshPromise = refreshApi.refresh().finally(() => {
           isRefreshing = false;
           refreshPromise = null;
         });
@@ -65,7 +65,6 @@ apiClient.interceptors.response.use(
         ...originalRequest.headers,
         Authorization: `Bearer ${data.accessToken}`,
       };
-
       return apiClient(originalRequest);
     } catch (refreshError) {
       logout();

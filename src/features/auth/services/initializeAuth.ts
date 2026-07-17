@@ -2,9 +2,9 @@ import { QueryClient } from "@tanstack/react-query";
 
 import type { AppDispatch } from "@/app/store";
 
+import { refreshApi } from "../api";
 import { clearSession } from "./clearSession";
 import { loadCurrentUser } from "./loadCurrentUser";
-import { refreshTokenApi } from "./refreshToken";
 import { tokenStorage } from "./tokenStorage";
 
 export async function initializeAuth(
@@ -12,7 +12,7 @@ export async function initializeAuth(
   dispatch: AppDispatch,
 ): Promise<boolean> {
   try {
-    const response = await refreshTokenApi.refresh();
+    const response = await refreshApi.refresh();
 
     if (!response?.accessToken) {
       clearSession();
