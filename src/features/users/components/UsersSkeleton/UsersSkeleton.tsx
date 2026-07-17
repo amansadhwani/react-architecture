@@ -1,54 +1,15 @@
-import {
-  Container,
-  Paper,
-  Skeleton,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import { Container, Stack } from "@mui/material";
 
-const ROWS = 6;
+import { ButtonSkeleton, TableSkeleton } from "@/app/ui/skeletons";
 
 export function UsersSkeleton() {
   return (
     <Container maxWidth="lg">
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <Skeleton variant="text" width={60} />
-              </TableCell>
-              <TableCell>
-                <Skeleton variant="text" width={60} />
-              </TableCell>
-              <TableCell>
-                <Skeleton variant="text" width={40} />
-              </TableCell>
-            </TableRow>
-          </TableHead>
+      <Stack spacing={2}>
+        <ButtonSkeleton width={140} />
 
-          <TableBody>
-            {Array.from({ length: ROWS }).map((_, index) => (
-              <TableRow key={index}>
-                <TableCell>
-                  <Skeleton variant="text" width="70%" />
-                </TableCell>
-
-                <TableCell>
-                  <Skeleton variant="text" width="90%" />
-                </TableCell>
-
-                <TableCell>
-                  <Skeleton variant="rounded" width={70} height={28} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Paper>
+        <TableSkeleton rows={6} columns={3} />
+      </Stack>
     </Container>
   );
 }
