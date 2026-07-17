@@ -1,14 +1,13 @@
 import { queryOptions } from "@tanstack/react-query";
 
+import { authApi } from "./auth.api";
 import { authKeys } from "./auth.keys";
-import { authApi } from "./authApi";
 
 export const authOptions = {
-  currentUser: (enabled = true) =>
+  currentUser: () =>
     queryOptions({
       queryKey: authKeys.currentUser(),
       queryFn: authApi.getCurrentUser,
       retry: false,
-      enabled,
     }),
 };

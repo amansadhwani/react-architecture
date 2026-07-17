@@ -1,4 +1,4 @@
-import { apiClient } from "@/lib/apiClient";
+import { apiClient } from "@/lib";
 
 import type { LoginFormValues } from "../types/auth.types";
 

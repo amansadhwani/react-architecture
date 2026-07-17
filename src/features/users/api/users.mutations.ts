@@ -1,4 +1,4 @@
-import { apiClient } from "@/lib";
+import { apiClient } from "@/lib/api";
 
 import type { CreateUserRequest, UpdateUserRequest, User } from "../types";
 

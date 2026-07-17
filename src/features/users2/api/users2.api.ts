@@ -1,4 +1,4 @@
-import { apiClient } from "@/lib";
+import { apiClient } from "@/lib/api";
 
 import type { Users2Response } from "../types";
 

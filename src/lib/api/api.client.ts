@@ -5,6 +5,7 @@ import { refreshApi } from "@/features/auth/api";
 import { logout } from "@/features/auth/services";
 import { tokenStorage } from "@/features/auth/services/tokenStorage";
 import type { RefreshTokenResponse } from "@/features/auth/types";
+import { mapApiError } from "@/lib/api/errors/map.api.error";
 
 export const apiClient = axios.create({
   baseURL: env.apiBaseUrl,
@@ -31,14 +32,16 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response?.status !== 401) {
-      throw error;
-    }
-
     const originalRequest = error.config;
 
-    if (originalRequest._retry) {
-      throw error;
+    // Non-auth errors
+    if (error.response?.status !== 401) {
+      throw mapApiError(error);
+    }
+
+    // Already retried once
+    if (originalRequest?._retry) {
+      throw mapApiError(error);
     }
 
     originalRequest._retry = true;
@@ -53,7 +56,7 @@ apiClient.interceptors.response.use(
         });
       }
 
-      if (refreshPromise === null) {
+      if (!refreshPromise) {
         throw new Error("Refresh promise was not initialized.");
       }
 
@@ -65,10 +68,11 @@ apiClient.interceptors.response.use(
         ...originalRequest.headers,
         Authorization: `Bearer ${data.accessToken}`,
       };
+
       return apiClient(originalRequest);
     } catch (refreshError) {
-      logout();
-      throw refreshError;
+      await logout();
+      throw mapApiError(refreshError);
     }
   },
 );

@@ -1,4 +1,4 @@
-import { refreshClient } from "@/lib/refreshClient";
+import { refreshClient } from "@/lib";
 
 import type { RefreshTokenResponse } from "../types";
 

@@ -21,11 +21,7 @@ export function LoginContainer() {
       },
 
       onError: (error) => {
-        snackbar.error(
-          error instanceof Error
-            ? error.message
-            : "Something went wrong. Please try again.",
-        );
+        snackbar.error(error.message);
       },
     });
   };

@@ -1,4 +1,4 @@
-import { apiClient } from "@/lib/apiClient";
+import { apiClient } from "@/lib/api/api.client";
 
 import type { Dashboard, DashboardResponse } from "../types/dashboard.types";
 
