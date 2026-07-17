@@ -1,16 +1,24 @@
 import type { ReactNode } from "react";
 
-import { useCan } from "../hooks/useCan";
-import { Permission } from "../permissions";
+import type { FeatureFlag } from "../featureFlags";
+import { useCan, useFeatureFlag } from "../hooks";
+import type { Permission } from "../permissions";
 
 interface CanProps {
-  permission: Permission;
+  permission?: Permission;
+  featureFlag?: FeatureFlag | undefined;
   children: ReactNode;
   fallback?: ReactNode;
 }
 
-export function Can({ permission, children, fallback = null }: CanProps) {
-  const allowed = useCan(permission);
+export function Can({
+  permission,
+  featureFlag,
+  children,
+  fallback = null,
+}: CanProps) {
+  const hasPermission = useCan(permission);
+  const hasFeatureFlag = useFeatureFlag(featureFlag);
 
-  return allowed ? <>{children}</> : <>{fallback}</>;
+  return hasPermission && hasFeatureFlag ? <>{children}</> : <>{fallback}</>;
 }

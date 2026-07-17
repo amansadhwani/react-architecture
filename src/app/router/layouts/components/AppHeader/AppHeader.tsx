@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { Can, Permission } from "@/access-control";
+import { Can, FeatureFlags, Permission } from "@/access-control";
 import { APP_ROUTES } from "@/app/config/routes";
 import { useAppTranslation, useLanguage } from "@/app/i18n";
 import type { AppLanguage } from "@/app/i18n/config";
@@ -33,9 +33,10 @@ export function AppHeader() {
       permission: Permission.UsersRead,
     },
     {
-      label: t("users:title"),
+      label: t("users:title2"),
       to: APP_ROUTES.USERS2,
       permission: Permission.Users2Read,
+      featureFlag: FeatureFlags.usersV2,
     },
     {
       label: t("system:title"),
@@ -67,7 +68,13 @@ export function AppHeader() {
         <Box sx={{ flexGrow: 1 }} />
 
         {navigation.map((item) => (
-          <Can key={item.to} permission={item.permission}>
+          <Can
+            key={item.to}
+            permission={item.permission}
+            {...(item.featureFlag && {
+              featureFlag: item.featureFlag,
+            })}
+          >
             <Button component={Link} to={item.to} color="inherit">
               {item.label}
             </Button>

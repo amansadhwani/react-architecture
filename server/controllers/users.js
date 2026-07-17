@@ -2,6 +2,7 @@ const createError = require("http-errors");
 
 const { users } = require("../data/data");
 const permissions = require("../data/permissions");
+const featureFlags = require("../data/featureFlags");
 
 const getUsersList = async (req, res, next) => {
   const usersListWithOutPassword = users.map((user) => {
@@ -30,6 +31,7 @@ const getAuthenticatedUser = async (req, res, next) => {
       data: {
         ...userWithoutPassword,
         permissions: permissions[userWithoutPassword.role] ?? [],
+        featureFlags: featureFlags[userWithoutPassword.role] ?? [],
       },
     });
   } catch (error) {

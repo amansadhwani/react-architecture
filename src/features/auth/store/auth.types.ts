@@ -1,21 +1,13 @@
-export type Role = "admin" | "manager" | "user";
-
-export type Permission =
-  | "dashboard.read"
-  | "users.read"
-  | "users.create"
-  | "users.update"
-  | "users.delete"
-  | "system.read"
-  | "users2.read";
+import type { FeatureFlag, Permission, Roles } from "@/access-control";
 
 export interface AuthUser {
   id: number;
   name: string;
   email: string;
   userName: string;
-  role: Role;
+  role: typeof Roles;
   permissions: Permission[];
+  featureFlags: FeatureFlag[];
 }
 
 export interface AuthState {
