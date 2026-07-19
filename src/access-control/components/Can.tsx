@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import type { FeatureFlag } from "../featureFlags";
+import type { FeatureFlag } from "../feature.flags";
 import { useCan, useFeatureFlag } from "../hooks";
 import type { Permission } from "../permissions";
 

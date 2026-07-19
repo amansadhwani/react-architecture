@@ -10,40 +10,18 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { Can, FeatureFlags, Permission } from "@/access-control";
+import { Can } from "@/access-control";
 import { APP_ROUTES } from "@/app/config/routes";
 import { useAppTranslation, useLanguage } from "@/app/i18n";
 import type { AppLanguage } from "@/app/i18n/config";
 import { useLogout } from "@/features/auth/hooks";
 
+import { appNavigation } from "../../app.navigation";
+
 export function AppHeader() {
   const { t } = useAppTranslation();
   const { language, changeLanguage } = useLanguage();
   const logoutMutation = useLogout();
-
-  const navigation = [
-    {
-      label: t("dashboard:title"),
-      to: APP_ROUTES.DASHBOARD,
-      permission: Permission.DashboardRead,
-    },
-    {
-      label: t("users:title"),
-      to: APP_ROUTES.USERS,
-      permission: Permission.UsersRead,
-    },
-    {
-      label: t("users:title2"),
-      to: APP_ROUTES.USERS2,
-      permission: Permission.Users2Read,
-      featureFlag: FeatureFlags.usersV2,
-    },
-    {
-      label: t("system:title"),
-      to: APP_ROUTES.SYSTEM,
-      permission: Permission.SystemRead,
-    },
-  ];
 
   const handleLogout = async () => {
     logoutMutation.mutate();
@@ -67,20 +45,17 @@ export function AppHeader() {
 
         <Box sx={{ flexGrow: 1 }} />
 
-        {navigation.map((item) => (
+        {appNavigation.map((item) => (
           <Can
             key={item.to}
-            permission={item.permission}
-            {...(item.featureFlag && {
-              featureFlag: item.featureFlag,
-            })}
+            {...(item.permission && { permission: item.permission })}
+            {...(item.featureFlag && { featureFlag: item.featureFlag })}
           >
             <Button component={Link} to={item.to} color="inherit">
-              {item.label}
+              {t(item.label)}
             </Button>
           </Can>
         ))}
-
         <FormControl
           size="small"
           sx={{
