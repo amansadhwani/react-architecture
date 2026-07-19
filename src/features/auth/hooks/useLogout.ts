@@ -1,19 +1,17 @@
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router";
 
-import { APP_ROUTES } from "@/app/config";
+import { useAppDispatch } from "@/app/store";
 
 import { logout } from "../services";
+import { clearCurrentUser } from "../store/auth.slice";
 
 export function useLogout() {
-  const navigate = useNavigate();
-
+  const dispatch = useAppDispatch();
   return useMutation({
     mutationFn: logout,
+
     onSuccess: () => {
-      navigate(APP_ROUTES.LOGIN, {
-        replace: true,
-      });
+      dispatch(clearCurrentUser());
     },
   });
 }
