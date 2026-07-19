@@ -3,7 +3,7 @@ import { Navigate, Outlet, useMatches } from "react-router";
 import { useCan, useFeatureFlag } from "@/access-control";
 import { APP_ROUTES } from "@/app/config/routes";
 import type { AppRouteHandle } from "@/app/router/router-handle";
-import { tokenStorage } from "@/features/auth/services/tokenStorage";
+import { tokenStorage } from "@/lib";
 
 export function ProtectedLayout() {
   const matches = useMatches();

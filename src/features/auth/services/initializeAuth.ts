@@ -1,11 +1,11 @@
 import { QueryClient } from "@tanstack/react-query";
 
 import type { AppDispatch } from "@/app/store";
+import { tokenStorage } from "@/lib";
 
 import { refreshApi } from "../api";
 import { clearSession } from "./clearSession";
 import { loadCurrentUser } from "./loadCurrentUser";
-import { tokenStorage } from "./tokenStorage";
 
 export async function initializeAuth(
   queryClient: QueryClient,

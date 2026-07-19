@@ -1,11 +1,11 @@
 import { QueryClient } from "@tanstack/react-query";
 
 import type { AppDispatch } from "@/app/store";
+import { tokenStorage } from "@/lib";
 
 import { authApi } from "../api";
 import type { LoginFormValues } from "../types/auth.types";
 import { loadCurrentUser } from "./loadCurrentUser";
-import { tokenStorage } from "./tokenStorage";
 
 export async function login(
   credentials: LoginFormValues,

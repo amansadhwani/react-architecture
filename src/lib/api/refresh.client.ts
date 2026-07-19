@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { env } from "@/app/config";
+import { env } from "../config";
 
 export const refreshClient = axios.create({
   baseURL: env.apiBaseUrl,

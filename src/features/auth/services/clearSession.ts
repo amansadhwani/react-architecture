@@ -1,6 +1,5 @@
 import { queryClient } from "@/app/query/queryClient";
-
-import { tokenStorage } from "./tokenStorage";
+import { tokenStorage } from "@/lib";
 
 export function clearSession(): void {
   tokenStorage.clearAccessToken();
