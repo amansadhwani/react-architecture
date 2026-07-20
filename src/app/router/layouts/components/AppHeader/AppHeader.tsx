@@ -23,12 +23,12 @@ export function AppHeader() {
   const { language, changeLanguage } = useLanguage();
   const logoutMutation = useLogout();
 
-  const handleLogout = async () => {
+  const handleLogout = () => {
     logoutMutation.mutate();
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
         <Typography
           component={Link}
@@ -56,6 +56,7 @@ export function AppHeader() {
             </Button>
           </Can>
         ))}
+
         <FormControl
           size="small"
           sx={{

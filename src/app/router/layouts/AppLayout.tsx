@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 import { AppFooter, AppHeader } from "./components";
@@ -13,6 +13,9 @@ export function AppLayout() {
       }}
     >
       <AppHeader />
+
+      {/* Spacer for fixed AppBar */}
+      <Toolbar />
 
       <Box
         component="main"

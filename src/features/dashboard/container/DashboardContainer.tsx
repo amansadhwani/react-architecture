@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 
 import { useAppSelector } from "@/app/store";
 import { selectCurrentUser } from "@/features/auth/store/auth.selectors";
@@ -32,7 +32,7 @@ export function DashboardContainer() {
 
   return (
     <Stack spacing={3} sx={{ p: 3 }}>
-      <h1>Welcome {user?.name}</h1>
+      <Typography variant="h4">Welcome {user?.name}</Typography>
       <DashboardStats stats={data.stats} />
 
       <Grid container spacing={3}>

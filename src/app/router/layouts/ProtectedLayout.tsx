@@ -20,7 +20,7 @@ export function ProtectedLayout() {
   const isFeatureEnabled = useFeatureFlag(featureFlag);
 
   if (!tokenStorage.getAccessToken()) {
-    return <Navigate to={APP_ROUTES.HOME} replace />;
+    return <Navigate to={APP_ROUTES.LOGIN} replace />;
   }
 
   if (!isFeatureEnabled) {
