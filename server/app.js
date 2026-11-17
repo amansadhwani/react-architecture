@@ -4,7 +4,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const swaggerUi = require("swagger-ui-express");
 
+const swaggerSpec = require("./swagger");
 const authRoutes = require("./routes/auth");
 const usersRoutes = require("./routes/users");
 
@@ -27,6 +29,8 @@ if (isDev) {
 app.use(express.json({ type: "application/json" }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
